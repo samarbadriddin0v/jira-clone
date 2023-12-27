@@ -1,39 +1,18 @@
 <script setup lang="ts">
-import { ACCOUNT } from '~/libs/appwrite'
 import { useStatusQuery } from '~/query/use-status-query'
-import { useAuthStore } from '~/store/auth.store'
-import { useLoadingStore } from '~/store/loading.store'
 
 definePageMeta({ layout: 'documents' })
 useHead({ title: 'Documents | Jira software' })
 
-const router = useRouter()
-const loadingStore = useLoadingStore()
-const authStore = useAuthStore()
-
-onMounted(() => {
-	ACCOUNT.get()
-		.then(response => {
-			loadingStore.set(false)
-			authStore.set({
-				email: response.email,
-				id: response.$id,
-				name: response.name,
-				status: response.status,
-			})
-		})
-		.catch(() => router.push('/auth'))
-})
-
-const { data, isLoading } = useStatusQuery()
+const { data, isLoading, refetch } = useStatusQuery()
 </script>
 
 <template>
 	<div class="grid grid-cols-4 gap-2 mt-12" v-if="isLoading">
-		<USkeleton class="h-12 bg-gray-900" />
-		<USkeleton class="h-12 bg-gray-900" />
-		<USkeleton class="h-12 bg-gray-900" />
-		<USkeleton class="h-12 bg-gray-900" />
+		<USkeleton class="h-12 dark:bg-gray-900 bg-gray-100" />
+		<USkeleton class="h-12 dark:bg-gray-900 bg-gray-100" />
+		<USkeleton class="h-12 dark:bg-gray-900 bg-gray-100" />
+		<USkeleton class="h-12 dark:bg-gray-900 bg-gray-100" />
 
 		<UiDealsLoader />
 		<UiDealsLoader />
@@ -42,17 +21,21 @@ const { data, isLoading } = useStatusQuery()
 	</div>
 
 	<div class="grid grid-cols-4 gap-2 mt-12" v-else>
-		<div v-for="item in data" :key="item.id">
+		<div v-for="column in data" :key="column.id">
 			<UButton class="w-full h-12" color="blue" variant="outline">
 				<div class="flex items-center space-x-2">
-					<span class="font-bold">{{ item.name }}</span>
-					<span class="text-sm text-neutral-500">{{ item.items.length }}</span>
+					<span class="font-bold">{{ column.name }}</span>
+					<span class="text-sm text-neutral-500">{{
+						column.items.length
+					}}</span>
 				</div>
 			</UButton>
 
+			<SharedCreateDeal :status="column.id" :refetch="refetch" />
+
 			<div
-				class="my-3 bg-gray-900 rounded-md p-2"
-				v-for="card in item.items"
+				class="my-3 dark:bg-gray-900 bg-gray-100 rounded-md p-2 animation"
+				v-for="card in column.items"
 				:key="card.$id"
 				role="button"
 				draggable="true"
@@ -78,3 +61,20 @@ const { data, isLoading } = useStatusQuery()
 		</div>
 	</div>
 </template>
+
+<style scoped>
+@keyframes show {
+	from {
+		transform: scale(0.5) translateY(-30px);
+		opacity: 0.4;
+	}
+	to {
+		transform: scale(1) translateY(0);
+		opacity: 1;
+	}
+}
+
+.animation {
+	animation: show 0.3s ease-in-out;
+}
+</style>
