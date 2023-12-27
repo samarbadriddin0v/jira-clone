@@ -19,6 +19,7 @@
     "@nuxt/image": "^1.1.0",
     "@nuxt/ui": "^2.11.1",
     "@pinia/nuxt": "^0.5.1",
+    "@tanstack/vue-query": "^5.15.0",
     "appwrite": "^13.0.1",
     "pinia": "^2.1.7"
   }
