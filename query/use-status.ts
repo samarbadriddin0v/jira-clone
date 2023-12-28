@@ -5,7 +5,7 @@ import { DATABASE } from '~/libs/appwrite'
 import type { IColumn, IDeal } from '~/types'
 import { useAuthStore } from './../store/auth.store'
 
-export const useStatusQuery = () => {
+export const useStatus = () => {
 	const { currentUser } = useAuthStore()
 
 	return useQuery({

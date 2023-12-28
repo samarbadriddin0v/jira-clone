@@ -2,14 +2,14 @@
 import { useMutation } from '@tanstack/vue-query'
 import { COLLECTION_DEALS, DB_ID } from '~/constants'
 import { DATABASE } from '~/libs/appwrite'
-import { useStatusQuery } from '~/query/use-status-query'
+import { useStatus } from '~/query/use-status'
 import { useCurrentDealStore } from '~/store/current-deal.store'
 import type { IColumn, IDeal } from '~/types'
 
 definePageMeta({ layout: 'documents' })
 useHead({ title: 'Documents | Jira software' })
 
-const { data, isLoading, refetch } = useStatusQuery()
+const { data, isLoading, refetch } = useStatus()
 const { set } = useCurrentDealStore()
 
 const dragCardRef = ref<IDeal | null>(null)
