@@ -19,10 +19,10 @@ const isLogin = ref(true)
 const toggleLogin = () => (isLogin.value = !isLogin.value)
 
 const onGoogle = () =>
-	ACCOUNT.createOAuth2Session('google', 'http://localhost:3000')
+	ACCOUNT.createOAuth2Session('google', 'https://jira.sammi.app')
 
 const onGithub = () =>
-	ACCOUNT.createOAuth2Session('github', 'http://localhost:3000')
+	ACCOUNT.createOAuth2Session('github', 'https://jira.sammi.app')
 </script>
 
 <template>
