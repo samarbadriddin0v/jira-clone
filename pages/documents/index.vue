@@ -86,7 +86,11 @@ const handleDrop = (column: IColumn) => {
 				@dragstart="() => handleDragStart(deal, column)"
 				:class="isPending && 'opacity-50 cursor-not-allowed'"
 			>
-				<div class="flex items-center space-x-2">
+				<div
+					class="flex items-center space-x-2"
+					role="button"
+					@click="set(deal)"
+				>
 					<span class="font-bold text-lg uppercase">{{ deal.name }}</span>
 				</div>
 
@@ -95,19 +99,6 @@ const handleDrop = (column: IColumn) => {
 				<div class="opacity-55 text-sm line-clamp-1">
 					{{ deal.description }}
 				</div>
-
-				<UButton
-					color="blue"
-					class="w-full mt-3 group"
-					variant="ghost"
-					@click="set(deal)"
-				>
-					<span class="font-bold">More details</span>
-					<Icon
-						name="material-symbols:arrow-right-alt-rounded"
-						class="group-hover:translate-x-2 transition"
-					/>
-				</UButton>
 			</div>
 		</div>
 

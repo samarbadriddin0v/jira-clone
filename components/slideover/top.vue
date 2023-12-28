@@ -16,7 +16,7 @@ const toggleExpanded = () => {
 </script>
 
 <template>
-	<div class="rounded p-3 bg-gray-800">
+	<div class="rounded p-3 dark:bg-gray-800 bg-gray-200">
 		<div class="uppercase bold text-xl mb-4 font-medium">About deal</div>
 
 		<SlideoverLabel label-text="Name">
