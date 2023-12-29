@@ -1,75 +1,38 @@
-# Nuxt 3 Minimal Starter
+<h1 align="center" id="title">Jira Sofrware Clone - NuxtJS</h1>
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+<p align="center"><img src="https://media.graphassets.com/5fxV1xnYT5OVi3WqKvcz" alt="project-image"></p>
 
-## Setup
+<p id="description">JiraClone-Nuxt is a powerful project management tool built with modern web technologies to provide a seamless and efficient project tracking experience. This open-source project leverages the robust capabilities of Nuxt.js Vue.js Pinia TypeScript Tailwind CSS Vue Query and Tailwind CSS to deliver a feature-rich and visually appealing Jira software clone.</p>
 
-Make sure to install the dependencies:
+<h2>🚀 Demo</h2>
 
-```bash
-# npm
-npm install
+[https://jira.sammi.app](https://jira.sammi.app)
 
-# pnpm
-pnpm install
+  
+  
+<h2>🧐 Features</h2>
 
-# yarn
-yarn install
+Here're some of the project's best features:
 
-# bun
-bun install
-```
+*   Vue.js and Nuxt.js Integration
+*   State Management with Pinia
+*   TypeScript Support
+*   Tailwind CSS Styling
+*   Vue Query for Data Fetching
+*   Comprehensive Project Management
+*   Customizable Workflows
+*   User Authentication and Authorization
 
-## Development Server
+  
+  
+<h2>💻 Built with</h2>
 
-Start the development server on `http://localhost:3000`:
+Technologies used in the project:
 
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+*   NuxtJS
+*   VueJS
+*   Pinia
+*   Typescript
+*   TailwindCSS
+*   Vue query
+*   NuxtUI
