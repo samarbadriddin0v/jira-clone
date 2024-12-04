@@ -61,17 +61,12 @@ const handleDrop = (column: IColumn) => {
 			@dragover="handleDragOver"
 			@drop="() => handleDrop(column)"
 			class="px-1"
-			:class="
-				isMoving &&
-				'border-l-2 border-r-2 border-dotted h-screen dark:border-gray-900 border-gray-200'
-			"
+			:class="isMoving && 'border-l-2 border-r-2 border-dotted h-screen dark:border-gray-900 border-gray-200'"
 		>
 			<UButton class="w-full h-12" color="blue" variant="outline">
 				<div class="flex items-center space-x-2">
 					<span class="font-bold">{{ column.name }}</span>
-					<span class="text-sm text-neutral-500">{{
-						column.items.length
-					}}</span>
+					<span class="text-sm text-neutral-500">{{ column.items.length }}</span>
 				</div>
 			</UButton>
 
@@ -86,15 +81,14 @@ const handleDrop = (column: IColumn) => {
 				@dragstart="() => handleDragStart(deal, column)"
 				:class="isPending && 'opacity-50 cursor-not-allowed'"
 			>
-				<div
-					class="flex items-center space-x-2"
-					role="button"
-					@click="set(deal)"
-				>
+				<div class="flex items-center justify-between" role="button" @click="set(deal)">
 					<span class="font-bold text-lg uppercase">{{ deal.name }}</span>
+					<div class="bg-opacity-50 dark:bg-gray-800 bg-gray-300 size-10 flex justify-center items-center">
+						<Icon name="material-symbols:edit" size="20" />
+					</div>
 				</div>
 
-				<UDivider class="my-3" />
+				<UDivider class="my-2" />
 
 				<div class="opacity-55 text-sm line-clamp-1">
 					{{ deal.description }}

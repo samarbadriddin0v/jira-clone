@@ -17,7 +17,7 @@ const logout = async () => {
 </script>
 
 <template>
-	<UPopover :popper="{ placement: 'left' }">
+	<UPopover :popper="{ placement: 'bottom' }">
 		<UAvatar :alt="currentUser.name" class="uppercase" size="lg" />
 
 		<template #panel>
@@ -28,21 +28,15 @@ const logout = async () => {
 					<div class="rounded-md dark:bg-gray-900 bg-gray-300 p-1">
 						<UAvatar :alt="currentUser.name" class="uppercase" />
 					</div>
-					<p class="capitalize text-[15px]">
-						{{ currentUser.name }}'s documents
-					</p>
+					<p class="capitalize text-[15px]">{{ currentUser.name }}'s documents</p>
 				</div>
 
 				<UDivider class="my-3" />
 
 				<NuxtLink to="/profile">
-					<UButton class="w-full" color="blue" variant="ghost">
-						Profile</UButton
-					>
+					<UButton class="w-full" color="blue" variant="ghost"> Profile</UButton>
 				</NuxtLink>
-				<UButton class="w-full" variant="ghost" color="red" @click="logout">
-					Logout</UButton
-				>
+				<UButton class="w-full" variant="ghost" color="red" @click="logout"> Logout</UButton>
 			</div>
 		</template>
 	</UPopover>

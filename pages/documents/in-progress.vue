@@ -43,37 +43,23 @@ const handleDelete = (id: string) => {
 	<div v-else>
 		<div v-if="data?.length">
 			<div class="grid grid-cols-4 gap-2">
-				<div
-					class="my-3 dark:bg-gray-900 bg-gray-100 rounded-md p-2 animation"
-					v-for="(item, index) in data"
-					:key="item.$id"
-				>
-					<div
-						class="flex items-center space-x-2"
-						role="button"
-						@click="set(item)"
-					>
+				<div class="my-3 dark:bg-gray-900 bg-gray-100 rounded-md p-2 animation" v-for="(item, index) in data" :key="item.$id">
+					<div class="flex items-center justify-between" role="button" @click="set(item)">
 						<span class="font-bold text-lg uppercase">{{ item.name }}</span>
+						<div class="bg-opacity-50 dark:bg-gray-800 bg-gray-300 size-10 flex justify-center items-center">
+							<Icon name="material-symbols:edit" size="20" />
+						</div>
 					</div>
 
-					<UDivider class="my-3" />
+					<UDivider class="my-2" />
 
 					<div class="opacity-55 text-sm line-clamp-1">
 						{{ item.description }}
 					</div>
 
 					<div class="grid grid-cols-2 gap-2 mt-2">
-						<UButton block color="blue" @click="editDeal.set(item)">
-							Edit
-						</UButton>
-						<UButton
-							block
-							color="red"
-							@click="() => handleDelete(item.$id)"
-							:disabled="isDeleting"
-						>
-							Delete
-						</UButton>
+						<UButton block color="blue" @click="editDeal.set(item)"> Edit </UButton>
+						<UButton block color="red" @click="() => handleDelete(item.$id)" :disabled="isDeleting"> Delete </UButton>
 					</div>
 				</div>
 

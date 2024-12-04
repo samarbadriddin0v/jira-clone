@@ -25,8 +25,7 @@ const state = reactive({
 const validate = (state: any): FormError[] => {
 	const errors = []
 	if (!state.email) errors.push({ path: 'email', message: 'Email is requierd' })
-	if (!state.password)
-		errors.push({ path: 'password', message: 'Password is required' })
+	if (!state.password) errors.push({ path: 'password', message: 'Password is required' })
 	return errors
 }
 
@@ -56,20 +55,8 @@ async function onSubmit(event: FormSubmitEvent<any>) {
 </script>
 
 <template>
-	<UAlert
-		icon="i-heroicons-command-line"
-		:description="error"
-		title="Error"
-		v-if="error"
-		color="red"
-		variant="outline"
-	/>
-	<UForm
-		:validate="validate"
-		:state="state"
-		class="space-y-4"
-		@submit="onSubmit"
-	>
+	<UAlert icon="i-heroicons-command-line" :description="error" title="Error" v-if="error" color="red" variant="outline" />
+	<UForm :validate="validate" :state="state" class="space-y-4" @submit="onSubmit">
 		<UFormGroup label="Email" name="email">
 			<UInput v-model="state.email" color="blue" size="lg" />
 		</UFormGroup>
@@ -80,23 +67,10 @@ async function onSubmit(event: FormSubmitEvent<any>) {
 
 		<div class="text-sm text-neutral-500">
 			Not registered yet?
-			<span
-				class="text-blue-500 hover:underline"
-				role="button"
-				@click="$props.toggleLogin"
-			>
-				Sign up
-			</span>
+			<span class="text-blue-500 hover:underline" role="button" @click="$props.toggleLogin"> Sign up </span>
 		</div>
 
-		<UButton
-			type="submit"
-			color="blue"
-			class="w-full"
-			block
-			size="lg"
-			:disabled="isLoading"
-		>
+		<UButton type="submit" color="blue" class="w-full" block size="lg" :disabled="isLoading">
 			<template v-if="isLoading">
 				<Icon name="svg-spinners:3-dots-fade" class="w-5 h-5" />
 			</template>
