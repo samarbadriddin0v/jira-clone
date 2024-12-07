@@ -6,7 +6,7 @@
 
 <h2>🚀 Demo</h2>
 
-[https://jira.sammi.app](https://jira.sammi.ac/)
+[https://jira.sammi.ac](https://jira.sammi.ac/)
 
   
   
